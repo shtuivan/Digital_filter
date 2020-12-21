@@ -14,7 +14,7 @@ public class Filtration {
     {
         double[] beyond = new double[3];
         double[] koef = new double[3];
-        koef[0] = 4;
+        koef[0] = 1;
         koef[1] = 3;
         koef[2] = 1;
         for (int j = 2; j < Signal.dlina; j++)
@@ -27,6 +27,7 @@ public class Filtration {
 
 
         }
+        System.out.println("Цикл фильтра успешно прошёл");
     }
 
 
@@ -39,7 +40,7 @@ public class Filtration {
     {
         double[] beyond = new double[3];
         double[] koef = new double[3];
-        koef[0] = 4;
+        koef[0] = 1;
         koef[1] = 3;
         koef[2] = 1;
         for (int j = 2; j < Formulas.dlina_frequency; j++)
@@ -57,6 +58,7 @@ public class Filtration {
             Formulas.KotF_now[j] = Formulas.ampl_out_now[j] / Formulas.ampl_in_now[j];
 
         }
+        System.out.println("Цикл фильтра RES успешно прошёл");
 
     }
 

@@ -4,7 +4,7 @@ class Signal {
     static int dlina = 300;
     static double[] input_signal = new double[Formulas.dlina_frequency];
     static double[] input_res_signal = new double[Formulas.dlina_frequency];
-    double[] amplitude = new double[Signal.dlina];
+    //double[] amplitude = new double[Signal.dlina];
     static double[] frequency = new double[Formulas.dlina_frequency];
 
     void Create_signal()
