@@ -6,11 +6,11 @@ import java.util.Arrays;
 class Signal {
     static int max_length_freq;
     static int step;
-    static int dlina = 50;
+    static int dlina;
     static int usual_length = 300;
     static double[] input_signal = new double[Formulas.dlina_frequency];
     static double[] input_res_signal = new double[Formulas.dlina_frequency];
-    double[] amplitude = new double[Signal.dlina];
+
     static double[] frequency = new double[Formulas.dlina_frequency];
 
     void Create_signal()
@@ -36,7 +36,7 @@ class Signal {
             FileOutputStream fos = new FileOutputStream("E:\\1java_prod\\Digital Filtration\\src\\output_filter\\out_cycle.csv");
 
 
-            for (int i = 0; i < Formulas.dlina_frequency; i = i + step) {
+            for (int i = 0; i < max_length_freq; i = i + step) {
 
 
                 frequency[i] = i;

@@ -1,3 +1,38 @@
+—оздадим исследовательский метод генерации входного сигнала Create_Research_signal:
+    void Create_Research_signal() {
+            for (int i = 0; i < Formulas.dlina_frequency; i++)
+            {
+                frequency[i] = i; //инкрементируем частоту на каждом шаге цикла
+                input_res_signal[i] = Formulas.Ampl_in * Math.cos(2 * Math.PI * frequency[i] * i * (1 / Formulas.Fs)); //генерируем функцию с учЄтом мен€ющейс€ частоты
+                Formulas.inp_max[i] = Arrays.stream(input_res_signal).max().getAsDouble(); //каждый шаг цикла высчитываем максимальное значение уже получившегос€ входного сигнала
+                Formulas.inp_min[i] = Arrays.stream(input_res_signal).min().getAsDouble(); //каждый шаг цикла высчитываем минимальное значение уже получившегос€ входного сигнала
+                Formulas.ampl_in_now[i] = (Formulas.inp_max[i] - Formulas.inp_min[i]) / 2; //вычисл€ем амплитуду каждого отдельного значени€ дл€ разной частоты
+            }
+        Formulas.in_max = Arrays.stream(input_res_signal).max().getAsDouble(); //ищем среднее получившеес€ максимальное значение во всЄм сигнале дл€ отладки
+        Formulas.in_min = Arrays.stream(input_res_signal).min().getAsDouble(); //ищем среднее получившеес€ минимальное значение во всЄм сигнале дл€ отладки
+        System.out.println("¬ходной исследовательский сигнал и амплитуда созданы");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     void Digital_Research_filter()
     {
         double[] beyond = new double[3];
