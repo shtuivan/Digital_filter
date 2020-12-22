@@ -72,7 +72,7 @@ class Signal {
                 }
 
 
-                System.out.println("вх ампл " + Formulas.ampl_in_now[i] + " на частоте " + i);
+                //System.out.println("вх ампл " + Formulas.ampl_in_now[i] + " на частоте " + i);
             }
 
             Formulas.in_max = Arrays.stream(input_res_signal).max().getAsDouble();
