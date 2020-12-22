@@ -13,8 +13,7 @@ public class Filter_main {
         choice.Asking();
 
         signal.Create_Research_signal();
-        filtration.Digital_Research_filter();
-        filtration.Output_Research();
+
         System.out.println("Исследовательский метод отработал");
 
 

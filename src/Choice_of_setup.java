@@ -1,5 +1,3 @@
-import java.awt.*;
-import java.text.Normalizer;
 import java.util.Scanner;
 
 public class Choice_of_setup {

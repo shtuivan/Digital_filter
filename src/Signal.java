@@ -1,4 +1,3 @@
-import javax.swing.plaf.metal.MetalIconFactory;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -84,8 +83,6 @@ class Signal {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
 
     }
 }
