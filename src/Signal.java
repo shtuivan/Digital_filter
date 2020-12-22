@@ -8,6 +8,7 @@ class Signal {
     static int max_length_freq;
     static int step;
     static int dlina = 50;
+    static int usual_length = 300;
     static double[] input_signal = new double[Formulas.dlina_frequency];
     static double[] input_res_signal = new double[Formulas.dlina_frequency];
     double[] amplitude = new double[Signal.dlina];
@@ -15,7 +16,7 @@ class Signal {
 
     void Create_signal()
     {
-        for (int i = 0; i < dlina; i++)
+        for (int i = 0; i < usual_length; i++)
         {
             input_signal[i] = Formulas.Ampl_in * Math.cos(2 * Math.PI * Formulas.F * i * (1 / Formulas.Fs));
         }
@@ -23,7 +24,7 @@ class Signal {
         Formulas.in_max = Arrays.stream(input_signal).max().getAsDouble();
         Formulas.in_min = Arrays.stream(input_signal).min().getAsDouble();
 
-        System.out.println("Входной сигнал и амплитуда созданы");
+        System.out.println("Обычный входной сигнал с F= " + Formulas.F + " и длиной " + usual_length + " значений создан.");
     }
 
     void Create_Research_signal() {
@@ -42,7 +43,7 @@ class Signal {
                 frequency[i] = i;
 
 
-                for (int z = 2; z < dlina; z++) {
+                for (int z = 2; z <= dlina; z++) {
                     input_res_signal[z] = Formulas.Ampl_in * Math.cos(2 * Math.PI * frequency[i] * z * (1 / Formulas.Fs));
 
 //Фильтрация отсюда

@@ -36,6 +36,7 @@ public class Choice_of_setup {
             Signal.dlina = scanner.nextInt();
             if (Signal.dlina >= 3 && Signal.dlina <= 300)
             {
+                Signal.dlina++;
                 break;
             }
             else System.out.println("Меньше 3 выбирать нельзя, а также нельзя сгенерировать значений больше, чем 300. Выберите ещё раз");

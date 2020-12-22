@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Filtration {
 
-    double[] output_signal = new double[Signal.dlina];
+    double[] output_signal = new double[Signal.usual_length];
     static double[] output_res_signal = new double[Formulas.dlina_frequency];
 
 
@@ -17,7 +17,7 @@ public class Filtration {
         koef[0] = 1;
         koef[1] = 3;
         koef[2] = 1;
-        for (int j = 2; j < Signal.dlina; j++)
+        for (int j = 2; j < Signal.usual_length; j++)
         {
             for (int g = 0; g < 3; g++)
             {
@@ -35,33 +35,7 @@ public class Filtration {
 
 
 
-    void Digital_Res_cycle()
-    {
-        double[] beyond = new double[3];
-        double[] koef = new double[3];
-        koef[0] = 1;
-        koef[1] = 3;
-        koef[2] = 4;
-        for (int j = 2; j < Formulas.dlina_frequency; j++)
-        {
-            for (int g = 0; g < 3; g++)
-            {
-                beyond[g] = koef[g] * Signal.input_res_signal[j-g];
-            }
-            output_res_signal[j] = beyond[0] + beyond[1] + beyond[2];
 
-
-            Formulas.outp_max[j] = Arrays.stream(output_res_signal).max().getAsDouble();
-            Formulas.outp_min[j] = Arrays.stream(output_res_signal).min().getAsDouble();
-            Formulas.ampl_out_now[j] = (Formulas.outp_max[j] - Formulas.outp_min[j]) / 2;
-            Formulas.KotF_now[j] = Formulas.ampl_out_now[j] / Formulas.ampl_in_now[j];
-
-            System.out.println("вых ампл " + Formulas.ampl_out_now[j] + " на частоте " + j);
-
-        }
-        System.out.println("Цикл фильтра RES успешно прошёл");
-
-    }
 
 
 
@@ -169,7 +143,7 @@ public class Filtration {
             byte[] b = fields_csv.getBytes();
             fos.write(b);
 
-            for (int k = 0; k < Signal.dlina; k++)
+            for (int k = 0; k < Signal.usual_length; k++)
             {
                 int num = k+1;
                 fields_csv = num + ";" + Signal.input_signal[k] + ";" + output_signal[k] +";\n";
