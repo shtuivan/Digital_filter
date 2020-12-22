@@ -1,28 +1,48 @@
+import java.awt.*;
+import java.text.Normalizer;
 import java.util.Scanner;
 
 public class Choice_of_setup {
     public void Asking()
     {
-        System.out.println("Какой шаг вы хотите использовать для исследования? (рекомендуется не ниже 100. Максимум - 299)");
         Scanner scanner = new Scanner(System.in);
-        Signal.step = scanner.nextInt();
-        if (Signal.step < 1)
+        while (true)
         {
-            System.out.println("Нельзя выбирать шаг меньше единицы");
-            Signal.step = 1;
+            System.out.println("До какой частоты будем разгонять сигнал? Максимум = " + Formulas.dlina_frequency);
+            Signal.max_length_freq = scanner.nextInt();
+            if (Signal.max_length_freq <= Formulas.dlina_frequency && Signal.max_length_freq >= 1)
+            {
+                break;
+            }
+            else System.out.println("Частота не может быть больше 300, т.к. в ТЗ указана частота дискретизации 600. Нельзя выбрать отрицательную и нулевую частоту. Выберите другую");
         }
-        else if (Signal.step > 299)
+
+        while (true)
         {
-            System.out.println("Нельзя выбирать шаг больше 299.");
-            Signal.step = 299;
+            System.out.println("Какой шаг вы хотите использовать для исследования? Рекомендуется не ниже " + (Signal.max_length_freq/3) + " . Максимум - " + (Signal.max_length_freq-1));
+
+            Signal.step = scanner.nextInt();
+            if (Signal.step >= 1 && Signal.step < Signal.max_length_freq)
+            {
+                break;
+            }
+            else System.out.println("Нельзя выбирать шаг меньше единицы. Нельзя выбирать шаг больше " + (Signal.max_length_freq-1) + ". Выберите шаг ещё раз");
         }
-        System.out.println("Какую длину для сигналов вы хотите использовать? (для наглядности не более 50)");
-        Signal.dlina = scanner.nextInt();
-        if (Signal.dlina < 3)
+
+
+        while (true)
         {
-            System.out.println("Слишком маленькая длина для сигнала");
-            Signal.dlina = 3;
+            System.out.println("Сколько значений сигнала вы хотите получить? (для наглядности не более 50)");
+            Signal.dlina = scanner.nextInt();
+            if (Signal.dlina >= 3 && Signal.dlina <= 300)
+            {
+                break;
+            }
+            else System.out.println("Меньше 3 выбирать нельзя, а также нельзя сгенерировать значений больше, чем 300. Выберите ещё раз");
         }
+
+
+
     }
 
 
