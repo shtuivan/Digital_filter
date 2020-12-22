@@ -12,8 +12,8 @@ public class Formulas {
 static double Fs = 600;
 static int dlina_frequency = (int) Fs / 2;
 static double Ampl_in = 220;
-static double Ampl_out = 2;
-static double F = 5;
+static double Ampl_out;
+static double F = 50;
 static double KotF;
 static double[] KotF_now = new double[dlina_frequency];
 static double in_max, in_min, out_max, out_min;
